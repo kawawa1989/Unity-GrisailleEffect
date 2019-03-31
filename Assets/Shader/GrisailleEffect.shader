@@ -21,6 +21,9 @@
         _Overlay6 ("Blend Color[6]", Color) = (0.5,0.5,0.5,1)
 		
         _MainTex ("Texture", 2D) = "white" {}
+        [Toggle]_LightMapActive ("Blend Active[6]", Float) = 0
+        _LightMapTex ("Texture", 2D) = "white" {}
+		_BlendLevel ("Level", Range (0, 1)) = 0
     }
     SubShader
     {
@@ -59,6 +62,10 @@
             }
 
             sampler2D _MainTex;
+			sampler2D _LightMapTex;
+			int _LightMapActive;
+			float _BlendLevel;
+
 			fixed4 _Overlay1;
 			fixed4 _Overlay2;
 			fixed4 _Overlay3;
@@ -104,7 +111,18 @@
 
 				// テクスチャの色情報を取得
                 fixed4 color = tex2D(_MainTex, i.uv);
+				fixed4 light = tex2D(_LightMapTex, i.uv);
 
+				// http://neareal.com/2428/
+				if (_LightMapActive == 1) {
+					float As = light.a * _BlendLevel;
+					float Ad = color.a;
+					float Ar = As + (1 - As) * Ad;
+					// Cr = [(Cs * As) + (Cd * (1 - As) * Ad)] / Ar
+					color.r = ((light.r * As) + (color.r * (1 - As) * Ad)) / Ar;
+					color.g = ((light.g * As) + (color.g * (1 - As) * Ad)) / Ar;
+					color.b = ((light.b * As) + (color.b * (1 - As) * Ad)) / Ar;
+				}
 
 				// 最後に行った合成処理によって変化した色を格納する
 				int index = 0;

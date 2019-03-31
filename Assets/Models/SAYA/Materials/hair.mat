@@ -10,7 +10,7 @@ Material:
   m_Name: hair
   m_Shader: {fileID: 4800000, guid: 58a133c3dabcf455185a531dc5432bd4, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ACTIVEOVERLAY1_ON _ACTIVEOVERLAY2_ON _ACTIVEOVERLAY3_ON
-    _OVERLAYACTIVE1_ON _OVERLAYACTIVE2_ON
+    _LIGHTMAPACTIVE_ON _OVERLAYACTIVE1_ON _OVERLAYACTIVE2_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -44,6 +44,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _LightMapTex:
+        m_Texture: {fileID: 2800000, guid: 279479886389c497080c9771dc538b31, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 1e84d3ea2af4143c6b2a00fc825c6e42, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -65,6 +69,7 @@ Material:
     - _ActiveOverlay1: 1
     - _ActiveOverlay2: 1
     - _ActiveOverlay3: 1
+    - _BlendLevel: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -73,6 +78,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _LightMapActive: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -92,8 +98,8 @@ Material:
     - _Color: {r: 0.9528302, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Overlay1: {r: 0.12829298, g: 0.45490196, b: 0.7411765, a: 1}
-    - _Overlay2: {r: 0.29338685, g: 0.462, b: 0.11465692, a: 1}
+    - _Overlay1: {r: 0, g: 0.5485334, b: 0.748, a: 1}
+    - _Overlay2: {r: 0.2509804, g: 0.29411766, b: 0, a: 1}
     - _Overlay3: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
     - _Overlay4: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Overlay5: {r: 0.5, g: 0.5, b: 0.5, a: 1}
