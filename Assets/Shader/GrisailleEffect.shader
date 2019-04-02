@@ -115,6 +115,14 @@
 
 				// http://neareal.com/2428/
 				if (_LightMapActive == 1) {
+					//Cr = Cd * (1 - As) + Cs * As
+					float As = light.a * _BlendLevel;
+					float Ad = color.a;					
+					color.r = color.r * (1 - As) + light.r * As;
+					color.g = color.g * (1 - As) + light.g * As;
+					color.b = color.b * (1 - As) + light.b * As;
+
+					/*
 					float As = light.a * _BlendLevel;
 					float Ad = color.a;
 					float Ar = As + (1 - As) * Ad;
@@ -122,6 +130,7 @@
 					color.r = ((light.r * As) + (color.r * (1 - As) * Ad)) / Ar;
 					color.g = ((light.g * As) + (color.g * (1 - As) * Ad)) / Ar;
 					color.b = ((light.b * As) + (color.b * (1 - As) * Ad)) / Ar;
+					*/
 				}
 
 				// 最後に行った合成処理によって変化した色を格納する

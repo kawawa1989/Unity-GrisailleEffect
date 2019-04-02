@@ -64,7 +64,7 @@ Material:
     - _ActiveOverlay1: 1
     - _ActiveOverlay2: 1
     - _ActiveOverlay3: 1
-    - _BlendLevel: 0
+    - _BlendLevel: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
